@@ -25,6 +25,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/upload',upload);
 // catch 404 and forward to error handler
+app.use((req,res,next)=>{
+    res.sendFile(path.join(__dirname,'/'));
+})
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
